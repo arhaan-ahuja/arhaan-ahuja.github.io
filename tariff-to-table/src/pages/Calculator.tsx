@@ -207,7 +207,7 @@ export default function Calculator() {
                       <YAxis tick={{ fontSize: 12, fill: '#8a8478' }} axisLine={false} tickLine={false} width={70} tickFormatter={(v) => inr(v)} />
                       <Tooltip
                         contentStyle={tooltipStyle}
-                        formatter={(v: number) => [inr(v), 'Monthly']}
+                        formatter={(v: any) => [inr(v), 'Monthly']}
                         cursor={{ fill: 'rgba(127,147,194,0.1)' }}
                       />
                       <Bar dataKey="value" radius={[8, 8, 0, 0]} barSize={80}>

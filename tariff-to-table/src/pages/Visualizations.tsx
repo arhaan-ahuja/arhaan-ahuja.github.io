@@ -70,7 +70,7 @@ export default function Visualizations() {
                 <CartesianGrid stroke={grid} vertical={false} />
                 <XAxis dataKey="year" tick={axis} axisLine={false} tickLine={false} />
                 <YAxis tick={axis} axisLine={false} tickLine={false} unit="%" />
-                <Tooltip contentStyle={tooltipStyle} formatter={(v: number) => [`${v}%`, 'Avg tariff']} />
+                <Tooltip contentStyle={tooltipStyle} formatter={(v: any) => [`${v}%`, 'Avg tariff']} />
                 <Area type="monotone" dataKey="tariff" stroke={C.brick} strokeWidth={2.5} fill="url(#gTariff)" animationDuration={900} />
               </AreaChart>
             </ResponsiveContainer>
@@ -87,7 +87,7 @@ export default function Visualizations() {
                 <CartesianGrid stroke={grid} vertical={false} />
                 <XAxis dataKey="year" tick={axis} axisLine={false} tickLine={false} />
                 <YAxis tick={axis} axisLine={false} tickLine={false} />
-                <Tooltip contentStyle={tooltipStyle} formatter={(v: number) => [`$${v}bn`, '']} />
+                <Tooltip contentStyle={tooltipStyle} formatter={(v: any) => [`$${v}bn`, '']} />
                 <Legend wrapperStyle={{ fontSize: 12 }} />
                 <Line type="monotone" dataKey="exports" stroke={C.moss} strokeWidth={2.5} dot={{ r: 3 }} name="Exports" animationDuration={900} />
                 <Line type="monotone" dataKey="imports" stroke={C.slate} strokeWidth={2.5} dot={{ r: 3 }} name="Imports" animationDuration={900} />
@@ -112,7 +112,7 @@ export default function Visualizations() {
                 <CartesianGrid stroke={grid} vertical={false} />
                 <XAxis dataKey="year" tick={axis} axisLine={false} tickLine={false} />
                 <YAxis tick={axis} axisLine={false} tickLine={false} domain={[13, 17]} unit="%" />
-                <Tooltip contentStyle={tooltipStyle} formatter={(v: number) => [`${v}%`, 'Mfg share']} />
+                <Tooltip contentStyle={tooltipStyle} formatter={(v: any) => [`${v}%`, 'Mfg share']} />
                 <Area type="monotone" dataKey="share" stroke={C.slate} strokeWidth={2.5} fill="url(#gMfg)" animationDuration={900} />
               </AreaChart>
             </ResponsiveContainer>
@@ -129,7 +129,7 @@ export default function Visualizations() {
                 <CartesianGrid stroke={grid} vertical={false} />
                 <XAxis dataKey="year" tick={axis} axisLine={false} tickLine={false} />
                 <YAxis tick={axis} axisLine={false} tickLine={false} unit="%" />
-                <Tooltip contentStyle={tooltipStyle} formatter={(v: number) => [`${v}%`, 'Openness']} />
+                <Tooltip contentStyle={tooltipStyle} formatter={(v: any) => [`${v}%`, 'Openness']} />
                 <Line type="monotone" dataKey="openness" stroke={C.ochre} strokeWidth={2.5} dot={{ r: 3 }} animationDuration={900} />
               </LineChart>
             </ResponsiveContainer>
@@ -146,7 +146,7 @@ export default function Visualizations() {
                 <CartesianGrid stroke={grid} vertical={false} />
                 <XAxis dataKey="year" tick={{ ...axis, fontSize: 10 }} axisLine={false} tickLine={false} />
                 <YAxis tick={axis} axisLine={false} tickLine={false} />
-                <Tooltip contentStyle={tooltipStyle} formatter={(v: number) => [`${v}M units`, 'Production']} cursor={{ fill: 'rgba(127,147,194,0.1)' }} />
+                <Tooltip contentStyle={tooltipStyle} formatter={(v: any) => [`${v}M units`, 'Production']} cursor={{ fill: 'rgba(127,147,194,0.1)' }} />
                 <Bar dataKey="units" fill={C.slate} radius={[6, 6, 0, 0]} animationDuration={900} />
               </BarChart>
             </ResponsiveContainer>
@@ -169,7 +169,7 @@ export default function Visualizations() {
                 <CartesianGrid stroke={grid} vertical={false} />
                 <XAxis dataKey="year" tick={{ ...axis, fontSize: 10 }} axisLine={false} tickLine={false} />
                 <YAxis tick={axis} axisLine={false} tickLine={false} unit="%" />
-                <Tooltip contentStyle={tooltipStyle} formatter={(v: number) => [`${v}%`, 'Poverty ratio']} />
+                <Tooltip contentStyle={tooltipStyle} formatter={(v: any) => [`${v}%`, 'Poverty ratio']} />
                 <Area type="monotone" dataKey="ratio" stroke={C.moss} strokeWidth={2.5} fill="url(#gPov)" animationDuration={900} />
               </AreaChart>
             </ResponsiveContainer>
@@ -188,7 +188,7 @@ export default function Visualizations() {
                 <CartesianGrid stroke={grid} horizontal={false} />
                 <XAxis type="number" tick={axis} axisLine={false} tickLine={false} unit="%" />
                 <YAxis type="category" dataKey="group" tick={axis} axisLine={false} tickLine={false} width={80} />
-                <Tooltip contentStyle={tooltipStyle} formatter={(v: number, n) => [n === 'burden' ? `${v}% of budget` : `${v}%`, n === 'burden' ? 'Tariff burden' : 'Spent on goods']} cursor={{ fill: 'rgba(127,147,194,0.1)' }} />
+                <Tooltip contentStyle={tooltipStyle} formatter={(v: any, n: any) => [n === 'burden' ? `${v}% of budget` : `${v}%`, n === 'burden' ? 'Tariff burden' : 'Spent on goods']} cursor={{ fill: 'rgba(127,147,194,0.1)' }} />
                 <Bar dataKey="burden" radius={[0, 6, 6, 0]} barSize={22} name="burden">
                   {REGRESSIVE_BURDEN.map((_, i) => (
                     <Cell key={i} fill={`hsl(14, ${46 - i * 6}%, ${36 + i * 8}%)`} />
