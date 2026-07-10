@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a1628" />
+
+    <title>Tariff to Table — How trade policy reaches your dinner table</title>
+    <meta
+      name="description"
+      content="An interactive companion to independent research on India's shift toward trade protectionism and its effect on social and income inequality. Explore the simulator, calculator, timeline, and explainers."
+    />
+    <meta name="author" content="Arhaan Ahuja" />
+    <meta name="keywords" content="tariffs, trade policy, protectionism, India, inequality, economics, Make in India, Atmanirbhar Bharat, free trade" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tariff to Table" />
+    <meta property="og:description" content="Understanding how trade policy affects everyday consumers — an interactive economics research platform." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tariff to Table" />
+    <meta name="twitter:description" content="Understanding how trade policy affects everyday consumers." />
+
+    <!-- SPA fallback for GitHub Pages deep links -->
+    <script type="text/javascript">
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, '', redirect);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
