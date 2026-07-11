@@ -6,13 +6,6 @@ export const SITE = {
     "To what extent has India's recent shift toward trade protectionism affected social and income inequality?",
   // The full research paper (served from /public).
   paperUrl: `${import.meta.env.BASE_URL}research-paper.pdf`,
-  // Update these links to your real profiles.
-  links: {
-    portfolio: 'https://arhaan-ahuja.github.io/',
-    github: 'https://github.com/arhaan-ahuja',
-    linkedin: 'https://www.linkedin.com/',
-    email: 'mailto:ahujaarhaan@gmail.com',
-  },
 }
 
 export interface NavItem {
