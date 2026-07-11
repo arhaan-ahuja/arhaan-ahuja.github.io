@@ -113,6 +113,13 @@ export const REFERENCES: Reference[] = [
     url: 'https://the1991project.com/writing/essays/protectionism-global-integration-indias-trade-policy-and-after-1991',
   },
   {
+    author: 'Ministry of Statistics & Programme Implementation (MoSPI)',
+    year: '2024',
+    title: 'Household Consumption Expenditure Survey: 2022-23 — Fact Sheet & Report No. 591',
+    source: 'Government of India',
+    url: 'https://www.mospi.gov.in/sites/default/files/publication_reports/Factsheet_HCES_2022-23.pdf',
+  },
+  {
     author: 'OECD',
     year: '2026',
     title: 'OECD Economic Outlook, Interim Report March 2026',
@@ -132,6 +139,13 @@ export const REFERENCES: Reference[] = [
     title: 'Comparative Advantage',
     source: 'The Decision Lab',
     url: 'https://thedecisionlab.com/reference-guide/economics/comparative-advantage',
+  },
+  {
+    author: 'Planning Commission of India',
+    year: '2013',
+    title: 'Press Note on Poverty Estimates, 2011-12 (Tendulkar methodology)',
+    source: 'Government of India',
+    url: 'https://www.niti.gov.in/sites/default/files/2020-05/press-note-poverty-2011-12-23-08-16.pdf',
   },
   {
     author: 'Reuters',
@@ -168,11 +182,25 @@ export const REFERENCES: Reference[] = [
     source: 'United Nations Conference on Trade and Development',
   },
   {
+    author: 'United States Trade Representative (USTR)',
+    year: '2021',
+    title: '2021 National Trade Estimate Report on Foreign Trade Barriers — India',
+    source: 'Office of the USTR',
+    url: 'https://ustr.gov/sites/default/files/files/reports/2021/2021NTE.pdf',
+  },
+  {
     author: 'Waghmare, A.',
     year: '2026',
     title: "How big is India's formal sector?",
     source: 'Data For India',
     url: 'https://www.dataforindia.com/informal-sector-sizing/',
+  },
+  {
+    author: 'World Bank',
+    year: '2024',
+    title: 'World Integrated Trade Solution (WITS) & World Development Indicators — India tariff, trade and manufacturing data',
+    source: 'The World Bank',
+    url: 'https://wits.worldbank.org/CountryProfile/en/IND',
   },
   {
     author: 'WTO',

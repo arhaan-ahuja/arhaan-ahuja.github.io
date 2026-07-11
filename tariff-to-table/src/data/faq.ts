@@ -26,7 +26,7 @@ export const FAQ: FaqItem[] = [
   },
   {
     q: 'Did India ever benefit from opening up to trade?',
-    a: "Yes. The 1991 liberalisation is widely seen as a turning point: growth averaged over 8% a year, the poverty ratio fell from 45% to 32%, private investment surged, and India became one of the world's largest economies.",
+    a: "Yes. The 1991 liberalisation is widely seen as a turning point: growth averaged over 8% a year, the poverty ratio fell from 45.3% (1993–94) to 21.9% (2011–12) on the Tendulkar measure, private investment surged, and India became one of the world's largest economies.",
   },
   {
     q: 'What is the difference between a tariff and a quota?',

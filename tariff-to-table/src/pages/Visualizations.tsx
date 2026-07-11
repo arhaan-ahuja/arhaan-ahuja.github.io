@@ -19,8 +19,8 @@ import {
   TARIFF_TREND,
   TARIFF_VS_PEERS,
   TRADE_OPENNESS,
-  MOBILE_PRODUCTION,
-  REGRESSIVE_BURDEN,
+  MANUFACTURING_SHARE,
+  MPCE_BY_FRACTILE,
 } from '../data/charts'
 
 const axis = { fontSize: 12, fill: '#8a8478' }
@@ -39,7 +39,7 @@ const C = {
 export default function Visualizations() {
   usePageMeta(
     'Data & Evidence',
-    "The data behind the paper's argument: India's rising tariffs, retreat from global trade, import-substitution push, and the regressive burden that follows."
+    "The data behind the paper's argument: India's rising tariffs, retreat from global trade, flat manufacturing share, and the regressive burden that follows."
   )
 
   return (
@@ -47,15 +47,15 @@ export default function Visualizations() {
       <PageHeader
         eyebrow="The Evidence"
         title="Data that supports the theory"
-        intro="Each figure below points the same way: India has, in recent years, turned toward trade protectionism — and that turn falls hardest on the poorest households. Some series match figures cited in the paper exactly; others are illustrative of the trends it describes, as noted."
+        intro="Every figure below is drawn from official statistics — World Bank and WITS tariff and national-accounts data, and India's official Household Consumption Expenditure Survey. The exact source sits beneath each chart, so you can check any number yourself."
       />
 
       <section className="container-px py-14">
         <div className="grid gap-6 lg:grid-cols-2">
           <ChartCard
             title="India's average tariff is rising"
-            caption="Applied tariffs drifted up through the protectionist turn, peaking around the cited 13.8% in 2019 and higher since."
-            source="Indicative path around figures cited in the paper (US Trade Dept., 2019)."
+            caption="India's MFN applied tariff (simple average, all products) climbed through the protectionist turn, peaking in 2019 — the year it walked away from RCEP."
+            source="Source: World Bank / WITS, MFN applied simple-average tariff, all products (TM.TAX.MRCH.SM.FN.ZS)."
           >
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={TARIFF_TREND} margin={{ top: 18, right: 12, left: -18, bottom: 0 }}>
@@ -77,8 +77,8 @@ export default function Visualizations() {
 
           <ChartCard
             title="Among the most protectionist of major economies"
-            caption="India maintains one of the highest average tariffs of any large economy — several times the levels of the US, EU and China."
-            source="Simple-average applied tariffs, WTO World Tariff Profiles (latest available); illustrative comparison."
+            caption="India maintains the highest average tariff of any large economy — several times the levels of the US, EU and China, and above Brazil."
+            source="Source: World Bank / WITS, MFN applied simple-average tariff, all products, 2022."
             delay={0.05}
           >
             <ResponsiveContainer width="100%" height="100%">
@@ -98,8 +98,8 @@ export default function Visualizations() {
 
           <ChartCard
             title="Retreating from global trade"
-            caption="After opening rapidly through the 1990s and 2000s, India's trade-to-GDP ratio fell back from its 2008–12 peak as the protectionist turn took hold."
-            source="Trade as % of GDP; illustrative of the long-run arc described in the paper."
+            caption="After opening rapidly through the 1990s and 2000s, India's trade-to-GDP ratio fell back from its 2012 peak as the protectionist turn took hold. The recent uptick partly reflects higher global commodity prices."
+            source="Source: World Bank, Trade (% of GDP) — NE.TRD.GNFS.ZS."
             delay={0.1}
           >
             <ResponsiveContainer width="100%" height="100%">
@@ -115,20 +115,20 @@ export default function Visualizations() {
           </ChartCard>
 
           <ChartCard
-            title="Import substitution behind the tariff wall"
-            caption="Higher duties on imported handsets pushed assembly onshore: domestic output rose from ~60M units (2014-15) to 310M+ (2021-22) — protectionism working as intended."
-            source="Krishnakumar (2022); intermediate years interpolated."
+            title="Manufacturing hasn't grown behind the wall"
+            caption="'Make in India' aimed to lift manufacturing to 25% of GDP. Instead its share has drifted down. Higher tariffs pushed some assembly onshore — India now makes ~97% of the phones it sells, up from ~22% in 2014 — but did not expand manufacturing overall."
+            source="Source: World Bank, Manufacturing value added (% of GDP) — NV.IND.MANF.ZS. Mobile-phone self-sufficiency: ICEA / IBEF."
             delay={0.15}
           >
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={MOBILE_PRODUCTION} margin={{ top: 18, right: 12, left: -18, bottom: 0 }}>
+              <LineChart data={MANUFACTURING_SHARE} margin={{ top: 18, right: 16, left: -18, bottom: 0 }}>
                 <CartesianGrid stroke={grid} vertical={false} />
-                <XAxis dataKey="year" tick={{ ...axis, fontSize: 10 }} axisLine={false} tickLine={false} />
-                <YAxis tick={axis} axisLine={false} tickLine={false} />
-                <Bar dataKey="units" fill={C.slate} radius={[6, 6, 0, 0]} animationDuration={900}>
-                  <LabelList dataKey="units" position="top" formatter={(v: any) => `${v}M`} style={label} />
-                </Bar>
-              </BarChart>
+                <XAxis dataKey="year" tick={axis} axisLine={false} tickLine={false} />
+                <YAxis tick={axis} axisLine={false} tickLine={false} unit="%" domain={[0, 20]} />
+                <Line type="monotone" dataKey="share" stroke={C.teal} strokeWidth={2.5} dot={{ r: 3 }} animationDuration={900}>
+                  <LabelList dataKey="share" position="top" formatter={(v: any) => `${v}%`} style={label} />
+                </Line>
+              </LineChart>
             </ResponsiveContainer>
           </ChartCard>
         </div>
@@ -136,20 +136,20 @@ export default function Visualizations() {
         {/* Full-width regressive burden chart */}
         <div className="mt-6">
           <ChartCard
-            title="Why the burden falls on the poorest"
-            caption="Poorer households spend a far larger share of income on consumption, so a tariff-driven price rise takes a bigger bite of their budget — the paper's central distributional point."
-            source="Illustrative model of the mechanism described in the paper."
+            title="Why a price rise hits the poorest hardest"
+            caption="The poorest 5% of rural Indians live on about ₹1,373 a month; the richest 5% on ₹10,501 — and lower-income households spend a far larger share of that on food and essentials (food alone is ~46% of rural spending). A tariff that raises the price of everyday goods therefore takes a bigger bite from the smallest budgets."
+            source="Source: MoSPI, Household Consumption Expenditure Survey 2022-23 — average MPCE by fractile class, rural India (Statement 4)."
           >
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={REGRESSIVE_BURDEN} layout="vertical" margin={{ top: 5, right: 40, left: 20, bottom: 0 }}>
+              <BarChart data={MPCE_BY_FRACTILE} layout="vertical" margin={{ top: 5, right: 56, left: 20, bottom: 0 }}>
                 <CartesianGrid stroke={grid} horizontal={false} />
-                <XAxis type="number" tick={axis} axisLine={false} tickLine={false} unit="%" />
+                <XAxis type="number" tick={axis} axisLine={false} tickLine={false} />
                 <YAxis type="category" dataKey="group" tick={axis} axisLine={false} tickLine={false} width={80} />
-                <Bar dataKey="burden" radius={[0, 6, 6, 0]} barSize={22} name="burden">
-                  {REGRESSIVE_BURDEN.map((_, i) => (
+                <Bar dataKey="mpce" radius={[0, 6, 6, 0]} barSize={22} name="mpce">
+                  {MPCE_BY_FRACTILE.map((_, i) => (
                     <Cell key={i} fill={`hsl(14, ${46 - i * 6}%, ${36 + i * 8}%)`} />
                   ))}
-                  <LabelList dataKey="burden" position="right" formatter={(v: any) => `${v}% of budget`} style={label} />
+                  <LabelList dataKey="mpce" position="right" formatter={(v: any) => `₹${v.toLocaleString('en-IN')}`} style={label} />
                 </Bar>
               </BarChart>
             </ResponsiveContainer>

@@ -15,10 +15,10 @@ export const KEY_FINDINGS: KeyFinding[] = [
       'The US Trade Department flagged India as having among the highest tariffs of any major economy.',
   },
   {
-    stat: '16.3% → 14.7%',
-    label: 'Manufacturing share of GDP (FY14–FY19)',
+    stat: '15.1% → 13.5%',
+    label: 'Manufacturing share of GDP (2014–2019)',
     detail:
-      'Despite the protectionist push, manufacturing actually shrank as a share of GDP — showing tariffs alone did not reindustrialise India.',
+      'Despite the protectionist push, manufacturing actually shrank as a share of GDP — showing tariffs alone did not reindustrialise India. (World Bank)',
   },
   {
     stat: '~80%',
@@ -27,10 +27,10 @@ export const KEY_FINDINGS: KeyFinding[] = [
       'Industrial growth does not automatically reach most workers, who lack stable, formal-sector jobs.',
   },
   {
-    stat: '45% → 32%',
-    label: 'Poverty ratio after 1991 liberalisation',
+    stat: '45.3% → 21.9%',
+    label: 'Poverty ratio, 1993–94 to 2011–12',
     detail:
-      'Opening up the economy coincided with falling poverty and 8%+ average annual growth.',
+      'Opening up the economy coincided with a steep fall in poverty and 8%+ average annual growth. (Tendulkar method, Planning Commission)',
   },
 ]
 
@@ -71,8 +71,8 @@ export const RESEARCH_SECTIONS: ResearchSection[] = [
     kicker: 'From License Raj to global integration — and back',
     paragraphs: [
       "After independence, India was highly protectionist, subsidising local industry and tightly restricting imports in pursuit of self-sufficiency. The cost to ordinary citizens was steep: people waited years for a telephone line or a scooter. Each attempt at reform was quickly reversed. By the 1960s, high inflation and uncompetitive goods — and a forced rupee devaluation — exposed the limits of the model.",
-      "The 1991 reforms changed everything. Growth averaged over 8% a year; the poverty ratio fell from 45% (1993–94) to 32% (2009–10); private investment surged. India joined the WTO in 1995 as a founding member and restructured its trade regime to be open and transparent. Exports of goods and services rose from $274.8bn to $544.7bn between FY10 and FY22, and India became one of the world's fastest-growing major economies.",
-      "Since around 2017–18, the pendulum has swung back. India raised duties on a range of goods, withdrew from the RCEP free-trade bloc in 2019, and launched Make in India (2014), Atmanirbhar Bharat (2020), and the PLI scheme. Results are mixed: manufacturing's GDP share fell from 16.3% (FY14) to 14.7% (FY19), yet electronics boomed — India became the world's second-largest mobile-phone maker and air-conditioner imports fell 65%.",
+      "The 1991 reforms changed everything. Growth averaged over 8% a year; the poverty ratio fell from 45.3% (1993–94) to 21.9% (2011–12) on the Tendulkar measure; private investment surged. India joined the WTO in 1995 as a founding member and restructured its trade regime to be open and transparent. Exports of goods and services rose from $274.8bn to $544.7bn between FY10 and FY22, and India became one of the world's fastest-growing major economies.",
+      "Since around 2017–18, the pendulum has swung back. India raised duties on a range of goods, withdrew from the RCEP free-trade bloc in 2019, and launched Make in India (2014), Atmanirbhar Bharat (2020), and the PLI scheme. Results are mixed: manufacturing's GDP share fell from 15.1% (2014) to 13.5% (2019), yet electronics boomed — India became the world's second-largest mobile-phone maker and now assembles the overwhelming majority of the phones it sells.",
     ],
     callout: {
       type: 'evidence',

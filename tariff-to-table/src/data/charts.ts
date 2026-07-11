@@ -1,57 +1,71 @@
-// Datasets for the Data & Evidence page. Every series here is chosen to support
-// the paper's central premise: that India has, in recent years, shifted toward
-// trade protectionism. Figures are drawn from, or illustrative of, the trends
-// discussed in the research paper; indicative series are marked in the caption.
+// Datasets for the Data & Evidence page.
+//
+// Every series here is drawn from official statistics — not illustrative.
+// Tariffs: World Bank / WITS (World Integrated Trade Solution). National
+// accounts (trade openness, manufacturing share): World Bank. Household
+// spending: India's official Household Consumption Expenditure Survey (MoSPI).
+// Each chart on the page carries its exact source beneath it.
 
-// Average applied tariff trend (%) — the direct measure of protectionism.
-// Indicative path around the 13.8% (2019) figure cited in the paper.
+// India's MFN applied tariff — simple average, all products (%). The direct
+// measure of protectionism; it rose through the protectionist turn, peaking in
+// the RCEP-exit year (2019).
+// Source: World Bank / WITS, TM.TAX.MRCH.SM.FN.ZS.
 export const TARIFF_TREND = [
-  { year: '2014', tariff: 12.5, label: 'Make in India' },
-  { year: '2016', tariff: 13.0 },
-  { year: '2018', tariff: 13.4 },
-  { year: '2019', tariff: 13.8, label: 'RCEP exit' },
-  { year: '2020', tariff: 14.3, label: 'Atmanirbhar' },
+  { year: '2015', tariff: 13.2, label: 'Make in India' },
+  { year: '2017', tariff: 13.8 },
+  { year: '2019', tariff: 15.5, label: 'RCEP exit' },
+  { year: '2020', tariff: 14.6, label: 'Atmanirbhar' },
   { year: '2022', tariff: 15.0 },
 ]
 
-// India's average tariff against other major economies — India stands out as
-// comparatively protectionist. Simple-average applied tariffs, latest available.
+// India's tariff against other major economies — MFN applied simple average,
+// all products (%), 2022. India stands out as the most protectionist.
+// Source: World Bank / WITS, TM.TAX.MRCH.SM.FN.ZS (2022).
 export const TARIFF_VS_PEERS = [
-  { economy: 'USA', tariff: 3.3 },
-  { economy: 'EU', tariff: 5.1 },
-  { economy: 'China', tariff: 7.5 },
-  { economy: 'Brazil', tariff: 13.3 },
+  { economy: 'USA', tariff: 3.5 },
+  { economy: 'EU', tariff: 5.2 },
+  { economy: 'China', tariff: 7.4 },
+  { economy: 'Brazil', tariff: 13.5 },
   { economy: 'India', tariff: 15.0 },
 ]
 
-// Trade openness (trade as % of GDP) — India retreated from its 2008–12 peak as
-// the protectionist turn took hold, reversing decades of opening.
+// Trade openness (trade as % of GDP) — India climbed through liberalisation to
+// a 2012 peak, then fell back during the protectionist turn. The post-2021
+// uptick partly reflects higher global commodity prices.
+// Source: World Bank, NE.TRD.GNFS.ZS.
 export const TRADE_OPENNESS = [
-  { year: '1991', openness: 16 },
-  { year: '1995', openness: 23 },
-  { year: '2004', openness: 38 },
-  { year: '2008', openness: 53 },
-  { year: '2012', openness: 55 },
-  { year: '2016', openness: 41 },
-  { year: '2020', openness: 38 },
+  { year: '1991', openness: 17.0 },
+  { year: '1995', openness: 22.9 },
+  { year: '2004', openness: 37.5 },
+  { year: '2008', openness: 53.4 },
+  { year: '2012', openness: 55.8 },
+  { year: '2016', openness: 40.1 },
+  { year: '2020', openness: 37.8 },
+  { year: '2022', openness: 50.7 },
 ]
 
-// Mobile phone production (million units) — 60m (2014-15) → 310m+ (2021-22).
-// Import substitution behind higher tariffs: domestic output replacing imports.
-export const MOBILE_PRODUCTION = [
-  { year: '2014-15', units: 60 },
-  { year: '2016-17', units: 130 },
-  { year: '2018-19', units: 225 },
-  { year: '2020-21', units: 270 },
-  { year: '2021-22', units: 310 },
+// Manufacturing value added (% of GDP). "Make in India" targeted lifting this to
+// 25%; instead its share has drifted down — protectionism did not deliver the
+// promised broad industrial expansion.
+// Source: World Bank, NV.IND.MANF.ZS.
+export const MANUFACTURING_SHARE = [
+  { year: '2011', share: 16.1 },
+  { year: '2014', share: 15.1 },
+  { year: '2016', share: 15.2 },
+  { year: '2019', share: 13.5 },
+  { year: '2022', share: 13.3 },
+  { year: '2024', share: 13.1 },
 ]
 
-// Illustrative: how a tariff-driven price rise hits household budgets by income
-// group, reflecting the paper's argument that tariffs act as a regressive tax.
-export const REGRESSIVE_BURDEN = [
-  { group: 'Lowest 20%', spendShare: 78, burden: 3.1 },
-  { group: 'Lower-mid', spendShare: 70, burden: 2.6 },
-  { group: 'Middle', spendShare: 60, burden: 2.0 },
-  { group: 'Upper-mid', spendShare: 48, burden: 1.4 },
-  { group: 'Top 20%', spendShare: 35, burden: 0.9 },
+// Average monthly per-capita consumption expenditure (MPCE, ₹) by fractile
+// class, rural India. The poorest live on a fraction of the richest's budget and
+// spend a far larger share of it on food and essentials — so a tariff-driven
+// price rise is regressive.
+// Source: MoSPI, Household Consumption Expenditure Survey 2022-23 (Statement 4).
+export const MPCE_BY_FRACTILE = [
+  { group: 'Poorest 5%', mpce: 1373 },
+  { group: '20–30%', mpce: 2454 },
+  { group: 'Middle', mpce: 3094 },
+  { group: '70–80%', mpce: 4458 },
+  { group: 'Richest 5%', mpce: 10501 },
 ]

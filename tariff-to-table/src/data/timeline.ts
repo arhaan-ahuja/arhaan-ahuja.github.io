@@ -38,7 +38,7 @@ export const TIMELINE: TimelineEvent[] = [
     significance:
       'A decisive shift toward comparative advantage and global integration — the turning point in modern Indian economic history.',
     impact:
-      'Growth averaged 8%+ a year; the poverty ratio fell from 45% (1993–94) to 32% (2009–10); private investment surged.',
+      'Growth averaged 8%+ a year; the poverty ratio fell from 45.3% (1993–94) to 21.9% (2011–12); private investment surged.',
     stance: 'liberal',
   },
   {
@@ -60,7 +60,7 @@ export const TIMELINE: TimelineEvent[] = [
     significance:
       'An early marker of the renewed appetite for industrial policy and domestic-capacity building.',
     impact:
-      'Mixed: manufacturing\'s GDP share fell from 16.3% (FY14) to 14.7% (FY19), showing branding and intent alone could not reindustrialise.',
+      'Mixed: manufacturing\'s GDP share fell from 15.1% (2014) to 13.5% (2019), showing branding and intent alone could not reindustrialise.',
     stance: 'mixed',
   },
   {
@@ -93,7 +93,7 @@ export const TIMELINE: TimelineEvent[] = [
     significance:
       'Reframed protectionism around economic resilience after the pandemic exposed dependence on global supply chains.',
     impact:
-      'Strengthened strategic capacity — e.g. air-conditioner imports later fell 65% — while raising questions about long-run efficiency.',
+      'Strengthened strategic capacity — e.g. domestic assembly of electronics and appliances expanded sharply — while raising questions about long-run efficiency.',
     stance: 'protectionist',
   },
   {

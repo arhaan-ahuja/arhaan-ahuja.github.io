@@ -7,9 +7,9 @@ import { usePageMeta } from '../hooks/usePageMeta'
 
 const STAT_VALUES = [
   { value: 13.8, decimals: 1, suffix: '%', label: KEY_FINDINGS[0].label, detail: KEY_FINDINGS[0].detail },
-  { value: 14.7, decimals: 1, suffix: '%', label: 'Mfg. share of GDP, FY19', detail: 'Down from 16.3% in FY14 despite the protectionist push.' },
+  { value: 13.5, decimals: 1, suffix: '%', label: 'Mfg. share of GDP, 2019', detail: 'Down from 15.1% in 2014 despite the protectionist push — far below the 25% target. (World Bank)' },
   { value: 30, prefix: '~', suffix: '%', label: 'Of world GDP — RCEP, exited', detail: "India left RCEP in 2019, the world's largest free-trade bloc — a clear step back from open trade." },
-  { value: 32, suffix: '%', label: 'Poverty ratio, 2009–10', detail: 'Down from 45% in 1993–94 after liberalisation.' },
+  { value: 21.9, decimals: 1, suffix: '%', label: 'Poverty ratio, 2011–12', detail: 'Down from 45.3% in 1993–94 after the 1991 liberalisation. (Tendulkar)' },
 ]
 
 const TOOLS = [

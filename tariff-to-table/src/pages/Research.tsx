@@ -15,7 +15,7 @@ import {
 
 const STAT_FINDINGS = [
   { value: 13.8, decimals: 1, suffix: '%', label: 'Avg. tariff (2019)', detail: 'Among the highest of any major economy.' },
-  { value: 14.7, decimals: 1, suffix: '%', label: 'Mfg. share of GDP (FY19)', detail: 'Down from 16.3% in FY14.' },
+  { value: 13.5, decimals: 1, suffix: '%', label: 'Mfg. share of GDP (2019)', detail: 'Down from 15.1% in 2014. (World Bank)' },
   { value: 310, suffix: 'M', label: 'Phones made (2021-22)', detail: 'Up from ~60M units in 2014-15.' },
   { value: 30, prefix: '~', suffix: '%', label: 'World GDP — RCEP, exited', detail: 'India left the largest free-trade bloc (2019).' },
 ]
