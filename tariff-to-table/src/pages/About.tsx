@@ -1,9 +1,7 @@
-import { Link } from 'react-router-dom'
-import { ArrowRight, Quote } from 'lucide-react'
+import { Quote } from 'lucide-react'
 import PageHeader from '../components/ui/PageHeader'
 import Reveal from '../components/ui/Reveal'
 import { usePageMeta } from '../hooks/usePageMeta'
-import { SITE } from '../data/site'
 
 const MOTIVATIONS = [
   {
@@ -68,40 +66,6 @@ export default function About() {
             </p>
           </div>
         </Reveal>
-      </section>
-
-      {/* About the author */}
-      <section className="container-px pb-20">
-        <div className="border-t-2 border-navy-900 pt-10 dark:border-navy-100">
-          <p className="eyebrow mb-8">
-            <span className="h-px w-7 bg-gold-600" /> About the Author
-          </p>
-          <div>
-            <h2 className="font-serif text-3xl font-semibold text-navy-900 dark:text-navy-50">
-              {SITE.author}
-            </h2>
-            <p className="mt-4 max-w-2xl leading-relaxed text-navy-600 dark:text-navy-300">
-              A student fascinated by economics, human behaviour, and the
-              incentives that quietly shape everyday decisions. This project grew
-              out of an independent research paper on India's trade policy and
-              inequality — an attempt to follow curiosity wherever it leads, and
-              to turn it into something other people can learn from.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/research" className="btn-primary">
-                Read the research <ArrowRight className="h-4 w-4" />
-              </Link>
-              <a
-                href={SITE.links.portfolio}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-              >
-                View portfolio
-              </a>
-            </div>
-          </div>
-        </div>
       </section>
     </>
   )
