@@ -76,39 +76,29 @@ export default function About() {
           <p className="eyebrow mb-8">
             <span className="h-px w-7 bg-gold-600" /> About the Author
           </p>
-          <div className="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
-            <div className="h-40 w-40 shrink-0 overflow-hidden border border-navy-200 bg-navy-100 dark:border-navy-800 dark:bg-navy-900 sm:h-44 sm:w-44">
-              {/* Headshot placeholder — drop a real image at public/headshot.jpg */}
-              <div className="flex h-full w-full items-center justify-center">
-                <span className="font-serif text-5xl font-semibold text-navy-400 dark:text-navy-600">
-                  AA
-                </span>
-              </div>
-            </div>
-            <div>
-              <h2 className="font-serif text-3xl font-semibold text-navy-900 dark:text-navy-50">
-                {SITE.author}
-              </h2>
-              <p className="mt-4 max-w-2xl leading-relaxed text-navy-600 dark:text-navy-300">
-                A student fascinated by economics, human behaviour, and the
-                incentives that quietly shape everyday decisions. This project
-                grew out of an independent research paper on India's trade policy
-                and inequality — an attempt to follow curiosity wherever it
-                leads, and to turn it into something other people can learn from.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link to="/research" className="btn-primary">
-                  Read the research <ArrowRight className="h-4 w-4" />
-                </Link>
-                <a
-                  href={SITE.links.portfolio}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary"
-                >
-                  View portfolio
-                </a>
-              </div>
+          <div>
+            <h2 className="font-serif text-3xl font-semibold text-navy-900 dark:text-navy-50">
+              {SITE.author}
+            </h2>
+            <p className="mt-4 max-w-2xl leading-relaxed text-navy-600 dark:text-navy-300">
+              A student fascinated by economics, human behaviour, and the
+              incentives that quietly shape everyday decisions. This project grew
+              out of an independent research paper on India's trade policy and
+              inequality — an attempt to follow curiosity wherever it leads, and
+              to turn it into something other people can learn from.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link to="/research" className="btn-primary">
+                Read the research <ArrowRight className="h-4 w-4" />
+              </Link>
+              <a
+                href={SITE.links.portfolio}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+              >
+                View portfolio
+              </a>
             </div>
           </div>
         </div>
