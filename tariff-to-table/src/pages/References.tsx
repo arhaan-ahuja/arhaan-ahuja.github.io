@@ -51,10 +51,6 @@ export default function References() {
               </Reveal>
             ))}
           </ol>
-          <p className="mt-8 px-4 text-xs text-navy-400">
-            Citations follow the formatting used in the original paper. Links are
-            provided for convenience and may change over time.
-          </p>
         </div>
       </section>
     </>
