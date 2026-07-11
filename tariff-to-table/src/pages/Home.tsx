@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Reveal from '../components/ui/Reveal'
 import StatCard from '../components/ui/StatCard'
@@ -66,11 +65,7 @@ export default function Home() {
       <section className="border-b border-navy-200 dark:border-navy-800">
         <div className="container-wide py-16 sm:py-24">
           <div className="grid items-end gap-12 lg:grid-cols-[1.5fr_1fr]">
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
+            <div>
               <p className="eyebrow mb-5">
                 <span className="h-px w-7 bg-gold-600" />
                 A research project · India · Trade policy
@@ -96,16 +91,11 @@ export default function Home() {
                   Calculate your tariff impact
                 </Link>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.15 }}
-              className="hidden lg:block"
-            >
+            <div className="hidden lg:block">
               <TariffFigure />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
