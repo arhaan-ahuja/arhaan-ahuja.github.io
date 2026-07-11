@@ -4,7 +4,6 @@ import { ArrowRight } from 'lucide-react'
 import Reveal from '../components/ui/Reveal'
 import StatCard from '../components/ui/StatCard'
 import { KEY_FINDINGS } from '../data/research'
-import { SITE } from '../data/site'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 const STAT_VALUES = [
@@ -85,9 +84,6 @@ export default function Home() {
                 protectionist trade policy on households, businesses and
                 economies — using India's recent return to protectionism as its
                 case study.
-              </p>
-              <p className="mt-4 text-sm text-navy-500 dark:text-navy-400">
-                An interactive companion to the research paper by {SITE.author}.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link to="/research" className="btn-primary">
