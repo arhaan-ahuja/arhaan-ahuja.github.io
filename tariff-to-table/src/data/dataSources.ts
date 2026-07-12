@@ -21,8 +21,7 @@ export interface DataSourceGroup {
 export const DATA_SOURCES: DataSourceGroup[] = [
   {
     category: 'Import tariff rates',
-    intro:
-      'The rates in the "Who pays the tariff?" simulator and the Tariff Calculator.',
+    intro: 'The rates in the "Who pays the tariff?" simulator.',
     items: [
       {
         title: 'Highlights of the Union Budget 2024-25 — basic customs duty on mobile phones cut to 15%',
@@ -45,14 +44,6 @@ export const DATA_SOURCES: DataSourceGroup[] = [
         usedFor:
           'Toys (70%), Clothes & shoes (25%) and Almonds & dry fruit (~30%) tariffs',
         url: 'https://www.cbic.gov.in/',
-      },
-      {
-        title: 'India says high tariffs on cars/EVs protect the domestic market',
-        publisher: 'Reuters (via ThePrint)',
-        year: '2024',
-        usedFor: 'Automobile / EV preset in the Calculator (70%)',
-        url: 'https://theprint.in/economy/india-says-high-tariffs-on-evs-to-protect-from-chinese-imports/2131433/',
-        alsoInPaper: true,
       },
     ],
   },

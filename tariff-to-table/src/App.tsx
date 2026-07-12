@@ -9,7 +9,6 @@ import Loader from './components/ui/Loader'
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
 const Research = lazy(() => import('./pages/Research'))
-const Calculator = lazy(() => import('./pages/Calculator'))
 const Simulator = lazy(() => import('./pages/Simulator'))
 const Timeline = lazy(() => import('./pages/Timeline'))
 const Learn = lazy(() => import('./pages/Learn'))
@@ -34,7 +33,6 @@ function AnimatedRoutes() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/research" element={<Research />} />
-            <Route path="/calculator" element={<Calculator />} />
             <Route path="/simulator" element={<Simulator />} />
             <Route path="/timeline" element={<Timeline />} />
             <Route path="/learn" element={<Learn />} />

@@ -18,7 +18,7 @@ const MOTIVATIONS = [
   },
   {
     title: 'Why build a platform, not just write a paper',
-    body: "A paper makes an argument; an interactive tool lets you test it. The simulator and calculator turn the paper's logic into something you can feel — change a tariff, and watch prices, revenue, and inequality move together.",
+    body: "A paper makes an argument; an interactive tool lets you test it. The simulator turns the paper's logic into something you can feel — change a tariff, and watch how the cost falls harder on a poorer family than a richer one.",
   },
 ]
 

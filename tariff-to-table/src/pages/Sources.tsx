@@ -39,8 +39,8 @@ export default function Sources() {
                   1 · Data behind the tools &amp; charts
                 </h2>
                 <p className="mt-2 text-sm text-navy-500 dark:text-navy-300">
-                  The official statistics and tariff rates that power the simulator,
-                  the calculator and the figures — grouped by where they appear.
+                  The official statistics and tariff rates that power the simulator
+                  and the figures — grouped by where they appear.
                 </p>
               </div>
             </Reveal>

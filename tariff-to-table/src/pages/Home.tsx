@@ -15,10 +15,9 @@ const STAT_VALUES = [
 const TOOLS = [
   { to: '/research', n: '01', title: 'The Research', desc: 'The full argument — literature, trajectory, rationale, and distributional effects — summarised clearly.' },
   { to: '/simulator', n: '02', title: 'Who Pays the Tariff?', desc: 'Pick a good and a tariff rate, and see how the cost takes a bigger bite out of a poorer family than a richer one.' },
-  { to: '/calculator', n: '03', title: 'Tariff Calculator', desc: 'Estimate how a tariff on the goods you buy changes your monthly and annual spending.' },
-  { to: '/timeline', n: '04', title: "India's Trade Timeline", desc: 'From the License Raj to PLI — the pendulum between protection and openness.' },
-  { to: '/learn', n: '05', title: 'Learn Economics', desc: 'Plain-language explainers for tariffs, comparative advantage, opportunity cost and more.' },
-  { to: '/visualizations', n: '06', title: 'Interactive Data', desc: "Charts on India's tariffs, trade flows, manufacturing and the regressive burden of tariffs." },
+  { to: '/timeline', n: '03', title: "India's Trade Timeline", desc: 'From the License Raj to PLI — the pendulum between protection and openness.' },
+  { to: '/learn', n: '04', title: 'Learn Economics', desc: 'Plain-language explainers for tariffs, comparative advantage, opportunity cost and more.' },
+  { to: '/visualizations', n: '05', title: 'Interactive Data', desc: "Charts on India's tariffs, trade flows, manufacturing and the regressive burden of tariffs." },
 ]
 
 // A small static editorial figure: India's average applied tariff (%).
@@ -86,9 +85,6 @@ export default function Home() {
                 </Link>
                 <Link to="/simulator" className="btn-secondary">
                   Explore the simulator
-                </Link>
-                <Link to="/calculator" className="btn-secondary">
-                  Calculate your tariff impact
                 </Link>
               </div>
             </div>

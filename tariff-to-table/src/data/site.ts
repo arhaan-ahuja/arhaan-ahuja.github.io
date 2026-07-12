@@ -16,7 +16,6 @@ export interface NavItem {
 export const NAV: NavItem[] = [
   { label: 'About', to: '/about' },
   { label: 'Research', to: '/research' },
-  { label: 'Calculator', to: '/calculator' },
   { label: 'Who Pays?', to: '/simulator' },
   { label: 'Timeline', to: '/timeline' },
   { label: 'Learn', to: '/learn' },
