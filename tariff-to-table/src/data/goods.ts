@@ -124,15 +124,15 @@ export const GOODS: Good[] = [
     kind: 'durable',
     tariff: 15,
     importShare: 55,
-    amount: { low: 9000, middle: 25000, high: 90000 },
+    amount: { low: 10000, middle: 25000, high: 130000 },
     note: 'A one-off purchase every few years — phones and their parts face import duties.',
     source:
       'Basic customs duty on mobile phones is 15% (cut from 20% in the July 2024 Budget). Source: Ministry of Finance, Union Budget 2024.',
     basis: {
       note: 'A durable — this is the price of one phone at each budget, from typical Indian retail prices (2024–25).',
-      low: 'Entry-level Android ≈ ₹9,000',
+      low: 'Entry-level Android ≈ ₹10,000',
       middle: 'Mid-range phone ≈ ₹25,000',
-      high: 'Flagship phone ≈ ₹90,000',
+      high: 'Flagship (iPhone Pro / Galaxy Ultra) ≈ ₹1,30,000',
     },
   },
   {
