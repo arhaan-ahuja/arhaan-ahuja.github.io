@@ -35,7 +35,7 @@ function TariffFigure() {
   return (
     <figure className="border border-navy-200 bg-white p-5 dark:border-navy-800 dark:bg-navy-900/40">
       <figcaption className="mb-3 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-navy-500 dark:text-navy-400">
-        Figure 1 — India's avg. applied tariff, %
+        India's avg. applied tariff, %
       </figcaption>
       <svg viewBox="0 0 210 44" className="w-full" role="img" aria-label="Line chart showing India's average tariff falling after 1991 then rising after 2017">
         <line x1="0" y1="43" x2="210" y2="43" stroke="currentColor" className="text-navy-200 dark:text-navy-800" strokeWidth="0.6" />
