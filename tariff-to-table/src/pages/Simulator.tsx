@@ -24,6 +24,36 @@ const ICONS: Record<string, LucideIcon> = {
   Nut,
 }
 
+// Concrete, sourced figures the spending model is built on — shown in the
+// "How these figures are estimated" panel so every assumption is traceable.
+const KEY_FIGURES: { value: string; label: string; source: string }[] = [
+  {
+    value: '₹3,773 rural · ₹6,459 urban',
+    label: 'Average monthly spending per person',
+    source: 'HCES 2022-23, MoSPI',
+  },
+  {
+    value: '₹1,373 → ₹10,501 (rural)',
+    label: "Poorest 5% vs richest 5% — monthly spend per person, showing the gap the model reflects",
+    source: 'HCES 2022-23, MoSPI',
+  },
+  {
+    value: '~46% rural · ~39% urban',
+    label: 'Share of a household budget spent on food — much higher for poorer families',
+    source: 'HCES 2022-23, MoSPI',
+  },
+  {
+    value: '~4.4 people',
+    label: 'Average Indian household size used to scale per-person figures',
+    source: 'Census / NFHS-5',
+  },
+  {
+    value: '23.5 kg per person / year',
+    label: 'Edible-oil consumption (2023) — the basis for the cooking-oil estimate',
+    source: 'Dept. of Food & Public Distribution',
+  },
+]
+
 const inr = (n: number) => '₹' + Math.round(n).toLocaleString('en-IN')
 
 // Friendly Indian large-number label, e.g. ₹1 crore, ₹55 lakh, ₹18,000.
@@ -358,6 +388,28 @@ export default function Simulator() {
                   income on essentials — the pattern (Engel's law) that makes a
                   tariff regressive.
                 </p>
+
+                <div className="rounded-md border border-navy-200 bg-navy-50 p-4 dark:border-navy-800 dark:bg-navy-950/40">
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold-600 dark:text-gold-400">
+                    The specific numbers behind the model
+                  </p>
+                  <dl className="mt-3 space-y-2.5">
+                    {KEY_FIGURES.map((f) => (
+                      <div key={f.label} className="flex flex-col gap-0.5">
+                        <dt className="font-semibold text-navy-800 dark:text-navy-100">
+                          {f.value}
+                        </dt>
+                        <dd className="text-navy-500 dark:text-navy-300">
+                          {f.label}{' '}
+                          <span className="text-navy-400 dark:text-navy-500">
+                            — {f.source}
+                          </span>
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+
                 <p className="text-navy-400 dark:text-navy-500">
                   The model assumes the tariff is fully passed on to shoppers, so
                   it shows the upper end of the price effect. A simple educational
