@@ -72,25 +72,34 @@ export default function Simulator() {
     middle: INCOME_TIERS[1].income,
     high: INCOME_TIERS[2].income,
   })
+  // Editable spend per tier (yearly spend for recurring goods, or unit price for
+  // durables) and, for durables, how many items are bought.
+  const [spend, setSpend] = useState<Record<Tier, number>>({ ...GOODS[0].amount })
+  const [qty, setQty] = useState<Record<Tier, number>>({ low: 1, middle: 1, high: 1 })
 
   function pickGood(id: string) {
+    const g = GOODS.find((g) => g.id === id)!
     setGoodId(id)
-    setTariff(GOODS.find((g) => g.id === id)!.tariff)
+    setTariff(g.tariff)
+    setSpend({ ...g.amount })
+    setQty({ low: 1, middle: 1, high: 1 })
   }
+
+  const isDurable = good.kind === 'durable'
 
   const rows = useMemo(() => {
     const data = INCOME_TIERS.map((t) => {
-      const amount = good.amount[t.id]
-      const extra = amount * (good.importShare / 100) * (tariff / 100)
+      const unit = spend[t.id]
+      const units = isDurable ? qty[t.id] : 1
+      const totalSpend = unit * units
+      const extra = totalSpend * (good.importShare / 100) * (tariff / 100)
       const annualIncome = income[t.id] * 12
       const burden = annualIncome > 0 ? (extra / annualIncome) * 100 : 0
-      return { tier: t, amount, extra, burden }
+      return { tier: t, unit, units, totalSpend, extra, burden }
     })
     const maxBurden = Math.max(...data.map((d) => d.burden), 0.0001)
     return data.map((d) => ({ ...d, barPct: (d.burden / maxBurden) * 100 }))
-  }, [good, tariff, income])
-
-  const isDurable = good.kind === 'durable'
+  }, [good, tariff, income, spend, qty, isDurable])
 
   const hardest = rows.reduce((a, b) => (b.burden > a.burden ? b : a), rows[0])
 
@@ -241,37 +250,86 @@ export default function Simulator() {
                     </div>
                   </div>
 
-                  <p className="mt-4 text-sm text-navy-500 dark:text-navy-300">
-                    {isDurable ? (
-                      <>
-                        Buys a {good.name.toLowerCase()} costing about{' '}
-                        <span className="font-semibold text-navy-800 dark:text-navy-100">
-                          {inr(r.amount)}
+                  {/* Spending — editable for every good */}
+                  <div className="mt-4">
+                    <label className="text-sm text-navy-500 dark:text-navy-300">
+                      {isDurable
+                        ? `Price of each ${good.name.toLowerCase()} — edit if you like`
+                        : `Yearly spend on ${good.name.toLowerCase()} — edit if you like`}
+                    </label>
+                    <div className="mt-1.5 flex items-center rounded-md border border-navy-300 focus-within:border-gold-600 dark:border-navy-700">
+                      <span className="pl-3 text-navy-400">₹</span>
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        value={r.unit.toLocaleString('en-IN')}
+                        onChange={(e) => {
+                          const digits = e.target.value.replace(/[^\d]/g, '')
+                          const n = digits === '' ? 0 : Math.min(parseInt(digits, 10), 1e9)
+                          setSpend((prev) => ({ ...prev, [r.tier.id]: n }))
+                        }}
+                        aria-label={`${r.tier.label} ${isDurable ? 'price per ' + good.name.toLowerCase() : 'yearly spend on ' + good.name.toLowerCase()} in rupees`}
+                        className="w-full bg-transparent px-2 py-2 font-semibold text-navy-900 outline-none dark:text-navy-50"
+                      />
+                      <span className="pr-3 text-xs text-navy-400">
+                        {isDurable ? 'each' : '/yr'}
+                      </span>
+                    </div>
+
+                    {isDurable && (
+                      <div className="mt-3 flex items-center justify-between">
+                        <span className="text-sm text-navy-500 dark:text-navy-300">
+                          How many {good.name.toLowerCase()}s
                         </span>
-                        .
-                      </>
-                    ) : (
-                      <>
-                        Spends about{' '}
-                        <span className="font-semibold text-navy-800 dark:text-navy-100">
-                          {inr(r.amount)}
-                        </span>{' '}
-                        a year on {good.name.toLowerCase()}.
-                      </>
+                        <div className="flex items-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setQty((prev) => ({
+                                ...prev,
+                                [r.tier.id]: Math.max(1, prev[r.tier.id] - 1),
+                              }))
+                            }
+                            aria-label={`Fewer ${good.name.toLowerCase()}s`}
+                            className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-navy-300 text-navy-700 transition-colors hover:border-navy-900 disabled:opacity-40 dark:border-navy-700 dark:text-navy-100"
+                            disabled={r.units <= 1}
+                          >
+                            −
+                          </button>
+                          <span className="w-6 text-center font-semibold text-navy-900 dark:text-navy-50">
+                            {r.units}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setQty((prev) => ({
+                                ...prev,
+                                [r.tier.id]: Math.min(20, prev[r.tier.id] + 1),
+                              }))
+                            }
+                            aria-label={`More ${good.name.toLowerCase()}s`}
+                            className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-navy-300 text-navy-700 transition-colors hover:border-navy-900 dark:border-navy-700 dark:text-navy-100"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
                     )}
-                  </p>
+                  </div>
 
                   {/* Extra cost */}
                   <div className="mt-4 border-t border-navy-100 pt-4 dark:border-navy-800">
                     <p className="font-serif text-3xl font-semibold text-navy-900 dark:text-navy-50">
                       +{inr(r.extra)}
                       <span className="ml-1 text-base font-sans font-medium text-navy-500 dark:text-navy-400">
-                        {isDurable ? `on one ${good.name.toLowerCase()}` : 'a year'}
+                        {isDurable
+                          ? `on ${r.units} ${good.name.toLowerCase()}${r.units > 1 ? 's' : ''}`
+                          : 'a year'}
                       </span>
                     </p>
                     <p className="mt-0.5 text-sm text-navy-500 dark:text-navy-400">
                       {isDurable
-                        ? 'a one-time cost, paid when they buy it'
+                        ? `a one-time cost, paid when they buy${r.units > 1 ? ' them' : ' it'}`
                         : `that's about +${inr(r.extra / 12)} a month`}
                     </p>
                   </div>
