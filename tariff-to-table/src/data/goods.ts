@@ -21,6 +21,16 @@
 
 export type Tier = 'low' | 'middle' | 'high'
 
+// How the ₹ amount for each income tier was worked out, shown on the page so
+// every figure is traceable. `note` frames the method; low/middle/high give the
+// specific arithmetic behind each tier's number.
+export interface AmountBasis {
+  note: string
+  low: string
+  middle: string
+  high: string
+}
+
 export interface Good {
   id: string
   name: string
@@ -31,6 +41,7 @@ export interface Good {
   amount: Record<Tier, number> // ₹: yearly spend (recurring) or item price (durable)
   note: string
   source: string // citation for the tariff rate
+  basis: AmountBasis // how each tier's amount was derived
 }
 
 export const GOODS: Good[] = [
@@ -45,6 +56,12 @@ export const GOODS: Good[] = [
     note: 'A kitchen staple bought all year round — India imports over half of its edible oil.',
     source:
       'Effective import duty on refined edible oils ≈ 35.75% in 2025 (crude edible oils were cut to ~16.5% in May 2025). Source: Ministry of Finance / CBIC notifications, 2024–25.',
+    basis: {
+      note: 'India uses ~23.5 kg of edible oil per person a year (2023). Amount = household size × per-person use × price/kg.',
+      low: '~5 people × ~11 kg × ₹140/kg ≈ ₹7,800',
+      middle: '~4.5 people × ~18 kg × ₹140/kg ≈ ₹11,400',
+      high: '~4 people × ~22 kg × ₹220/kg (pricier oils) ≈ ₹19,200',
+    },
   },
   {
     id: 'clothes',
@@ -57,6 +74,12 @@ export const GOODS: Good[] = [
     note: 'Bought a few times a year — apparel and footwear carry sizeable import duties.',
     source:
       'Basic customs duty on apparel is ~20%, and on footwear 20–35%. Source: CBIC Customs Tariff.',
+    basis: {
+      note: 'HCES 2022-23 puts clothing + footwear at ~7–8% of household spending. Amount = household size × per-person yearly clothing & shoe spend.',
+      low: '~5 people × ~₹1,200 ≈ ₹6,000',
+      middle: '~4.5 people × ~₹3,300 ≈ ₹15,000',
+      high: '~4 people × ~₹10,500 ≈ ₹42,000',
+    },
   },
   {
     id: 'toys',
@@ -69,6 +92,12 @@ export const GOODS: Good[] = [
     note: 'India raised toy tariffs sharply to cut cheap imports.',
     source:
       'Basic customs duty on toys is 70% (raised from 60% in Feb 2023, and from 20% in 2020). Source: CBIC / PIB, 2023.',
+    basis: {
+      note: 'Toy spend tracks the number of children and the budget per child. Amount = children × yearly spend per child.',
+      low: '~2 children × ~₹1,500 ≈ ₹3,000',
+      middle: '~2 children × ~₹3,500 ≈ ₹7,000',
+      high: '~1–2 children × ~₹12,000 (branded / imported) ≈ ₹18,000',
+    },
   },
   {
     id: 'almonds',
@@ -81,6 +110,12 @@ export const GOODS: Good[] = [
     note: 'Mostly imported and bought through the year. Duties vary widely across the basket.',
     source:
       'Dry-fruit duties range widely — walnuts 100%, dates ~30%; almonds are taxed per kilo (₹100/kg shelled ≈ ~15% of value). ~30% is a representative basket rate. Source: CBIC Customs Tariff.',
+    basis: {
+      note: 'Dry fruit is discretionary, so spend rises steeply with income — from festival-only to year-round. Amount = typical monthly spend × 12.',
+      low: '~₹200/month (mainly festivals) × 12 ≈ ₹2,400',
+      middle: '~₹500/month × 12 ≈ ₹6,000',
+      high: '~₹1,400/month (regular use + gifting) × 12 ≈ ₹16,800',
+    },
   },
   {
     id: 'phone',
@@ -93,6 +128,12 @@ export const GOODS: Good[] = [
     note: 'A one-off purchase every few years — phones and their parts face import duties.',
     source:
       'Basic customs duty on mobile phones is 15% (cut from 20% in the July 2024 Budget). Source: Ministry of Finance, Union Budget 2024.',
+    basis: {
+      note: 'A durable — this is the price of one phone at each budget, from typical Indian retail prices (2024–25).',
+      low: 'Entry-level Android ≈ ₹9,000',
+      middle: 'Mid-range phone ≈ ₹25,000',
+      high: 'Flagship phone ≈ ₹90,000',
+    },
   },
   {
     id: 'tv',
@@ -105,6 +146,12 @@ export const GOODS: Good[] = [
     note: 'A one-off purchase — imported TVs and panels are taxed to favour local makers.',
     source:
       'Basic customs duty on finished TVs and flat-panel displays is 20% (Budget 2025-26). Source: Ministry of Finance.',
+    basis: {
+      note: 'A durable — this is the price of one TV at each budget, from typical Indian retail prices (2024–25).',
+      low: '32-inch LED TV ≈ ₹18,000',
+      middle: '43-inch TV ≈ ₹35,000',
+      high: '65-inch premium TV ≈ ₹1,20,000',
+    },
   },
 ]
 

@@ -274,6 +274,41 @@ export default function Simulator() {
           })}
         </div>
 
+        {/* Per-item basis — how each tier's amount was worked out */}
+        <Reveal>
+          <div className="card mt-8 p-6">
+            <p className="eyebrow mb-3">
+              <span className="h-px w-7 bg-gold-600" /> How we got these amounts for {good.name.toLowerCase()}
+            </p>
+            <p className="text-sm leading-relaxed text-navy-600 dark:text-navy-200">
+              {good.basis.note}
+            </p>
+            <dl className="mt-4 space-y-0">
+              {[
+                { label: INCOME_TIERS[0].label, calc: good.basis.low },
+                { label: INCOME_TIERS[1].label, calc: good.basis.middle },
+                { label: INCOME_TIERS[2].label, calc: good.basis.high },
+              ].map((r) => (
+                <div
+                  key={r.label}
+                  className="flex flex-col gap-0.5 border-t border-navy-100 py-2.5 dark:border-navy-800 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+                >
+                  <dt className="text-sm font-semibold text-navy-700 dark:text-navy-100">
+                    {r.label}
+                  </dt>
+                  <dd className="text-sm text-navy-500 dark:text-navy-300 sm:text-right">
+                    {r.calc}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-4 text-xs leading-relaxed text-navy-400 dark:text-navy-500">
+              Rounded, realistic estimates grounded in HCES 2022-23 and typical
+              Indian consumption — not exact survey values.
+            </p>
+          </div>
+        </Reveal>
+
         {/* Takeaway */}
         <Reveal>
           <div className="mt-10 border-l-[3px] border-gold-600 bg-white px-6 py-5 dark:bg-navy-900/50">
@@ -312,21 +347,16 @@ export default function Simulator() {
                   meant to span a realistic range for India, not to be exact.
                 </p>
                 <p>
-                  <strong>Yearly spending is modelled, not guessed.</strong> Each
-                  amount is a plausible share of that household's yearly budget,
-                  grounded in India's official Household Consumption Expenditure
-                  Survey (HCES 2022-23) and real per-person consumption. Richer
-                  households spend more in rupees but a{' '}
-                  <em>smaller share</em> of income on essentials — the well-known
-                  pattern (Engel's law) that makes a tariff regressive.
-                </p>
-                <p>
-                  <strong>Worked example — cooking oil.</strong> India consumes
-                  about 23.5 kg of edible oil per person a year (2023). A
-                  five-person lower-income family using ~55–65 kg at ~₹130–150/kg
-                  spends roughly ₹7,000–9,000 a year — about 4% of a ₹18,000/month
-                  budget. That is why ₹7,800 is realistic, and even a little
-                  conservative.
+                  <strong>Spending is modelled, not guessed.</strong> Each amount
+                  is a plausible share of that household's yearly budget, grounded
+                  in India's official Household Consumption Expenditure Survey
+                  (HCES 2022-23) and real per-person consumption. The exact
+                  arithmetic for the good you pick — for a lower-, middle- and
+                  high-income family — is shown in the{' '}
+                  <em>"How we got these amounts"</em> box just above. Richer
+                  households spend more in rupees but a <em>smaller share</em> of
+                  income on essentials — the pattern (Engel's law) that makes a
+                  tariff regressive.
                 </p>
                 <p className="text-navy-400 dark:text-navy-500">
                   The model assumes the tariff is fully passed on to shoppers, so
