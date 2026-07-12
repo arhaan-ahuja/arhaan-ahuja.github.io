@@ -1,15 +1,18 @@
 // Commonly-used goods that India taxes relatively heavily on import.
-// Tariff rates are approximate, real-world ballpark figures (they change with
-// policy) and are labelled as approximate in the UI.
+//
+// TARIFF RATES are approximate but real: each reflects India's actual import
+// duty (basic customs duty, or the effective duty where cesses matter), sourced
+// in `source` below. They are verified against official Budget / CBIC / PIB
+// figures as of 2025 and labelled "approximate" in the UI because policy shifts.
 //
 // Goods are modelled by their *natural unit*:
 //   - 'recurring'  → a household's typical spend PER YEAR (oil, clothes, etc.)
 //   - 'durable'    → the price of ONE item bought occasionally (phone, TV)
 //
-// `amount` is a yearly spend (recurring) or a one-item price (durable), in ₹,
-// for each income tier. Poorer households spend less in absolute terms, but a
-// larger share of their income on everyday goods — which is why a tariff acts
-// like a regressive tax. Figures are realistic but illustrative.
+// `amount` (yearly spend or one-item price, in ₹, per tier) and `importShare`
+// are realistic but ILLUSTRATIVE modelling assumptions — poorer households
+// spend less in absolute terms but a larger share of income on everyday goods,
+// which is why a tariff acts like a regressive tax.
 
 export type Tier = 'low' | 'middle' | 'high'
 
@@ -18,10 +21,11 @@ export interface Good {
   name: string
   icon: string // lucide icon name
   kind: 'recurring' | 'durable'
-  tariff: number // approx import tariff %
+  tariff: number // approx import tariff % (see `source`)
   importShare: number // share of the price that is imported / tariff-exposed
   amount: Record<Tier, number> // ₹: yearly spend (recurring) or item price (durable)
   note: string
+  source: string // citation for the tariff rate
 }
 
 export const GOODS: Good[] = [
@@ -33,7 +37,9 @@ export const GOODS: Good[] = [
     tariff: 35,
     importShare: 60,
     amount: { low: 7800, middle: 11400, high: 19200 },
-    note: 'A kitchen staple bought all year round — India imports most of its edible oil.',
+    note: 'A kitchen staple bought all year round — India imports over half of its edible oil.',
+    source:
+      'Effective import duty on refined edible oils ≈ 35.75% in 2025 (crude edible oils were cut to ~16.5% in May 2025). Source: Ministry of Finance / CBIC notifications, 2024–25.',
   },
   {
     id: 'clothes',
@@ -44,6 +50,8 @@ export const GOODS: Good[] = [
     importShare: 35,
     amount: { low: 6000, middle: 15000, high: 42000 },
     note: 'Bought a few times a year — apparel and footwear carry sizeable import duties.',
+    source:
+      'Basic customs duty on apparel is ~20%, and on footwear 20–35%. Source: CBIC Customs Tariff.',
   },
   {
     id: 'toys',
@@ -54,26 +62,32 @@ export const GOODS: Good[] = [
     importShare: 50,
     amount: { low: 3000, middle: 7000, high: 18000 },
     note: 'India raised toy tariffs sharply to cut cheap imports.',
+    source:
+      'Basic customs duty on toys is 70% (raised from 60% in Feb 2023, and from 20% in 2020). Source: CBIC / PIB, 2023.',
   },
   {
     id: 'almonds',
     name: 'Almonds & dry fruit',
     icon: 'Nut',
     kind: 'recurring',
-    tariff: 40,
+    tariff: 30,
     importShare: 80,
     amount: { low: 2400, middle: 6000, high: 16800 },
-    note: 'Mostly imported, bought through the year, and taxed at a high rate.',
+    note: 'Mostly imported and bought through the year. Duties vary widely across the basket.',
+    source:
+      'Dry-fruit duties range widely — walnuts 100%, dates ~30%; almonds are taxed per kilo (₹100/kg shelled ≈ ~15% of value). ~30% is a representative basket rate. Source: CBIC Customs Tariff.',
   },
   {
     id: 'phone',
     name: 'Smartphone',
     icon: 'Smartphone',
     kind: 'durable',
-    tariff: 20,
+    tariff: 15,
     importShare: 55,
     amount: { low: 9000, middle: 25000, high: 90000 },
     note: 'A one-off purchase every few years — phones and their parts face import duties.',
+    source:
+      'Basic customs duty on mobile phones is 15% (cut from 20% in the July 2024 Budget). Source: Ministry of Finance, Union Budget 2024.',
   },
   {
     id: 'tv',
@@ -84,6 +98,8 @@ export const GOODS: Good[] = [
     importShare: 45,
     amount: { low: 18000, middle: 35000, high: 120000 },
     note: 'A one-off purchase — imported TVs and panels are taxed to favour local makers.',
+    source:
+      'Basic customs duty on finished TVs and flat-panel displays is 20% (Budget 2025-26). Source: Ministry of Finance.',
   },
 ]
 

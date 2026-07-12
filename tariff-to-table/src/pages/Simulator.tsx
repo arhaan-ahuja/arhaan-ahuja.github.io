@@ -103,6 +103,9 @@ export default function Simulator() {
             })}
           </div>
           <p className="mt-3 text-sm text-navy-500 dark:text-navy-400">{good.note}</p>
+          <p className="mt-1.5 max-w-2xl text-xs leading-relaxed text-navy-400 dark:text-navy-500">
+            {good.source}
+          </p>
         </Reveal>
 
         {/* Step 2 — set tariff */}
@@ -290,10 +293,11 @@ export default function Simulator() {
           </div>
         </Reveal>
 
-        <p className="mt-8 text-center text-xs text-navy-400">
-          Tariff rates, incomes, yearly spending and one-off prices are realistic
-          but illustrative, and assume the tariff is passed on to shoppers. A
-          simple educational model.
+        <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-navy-400">
+          Tariff rates are India's actual approximate import duties, sourced under
+          each good above. Incomes, yearly spending and one-off prices are
+          realistic but illustrative, and the model assumes the tariff is fully
+          passed on to shoppers. A simple educational model.
         </p>
       </section>
     </>

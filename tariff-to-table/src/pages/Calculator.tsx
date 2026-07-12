@@ -22,11 +22,14 @@ interface Preset {
   tariff: number
   importShare: number
 }
+// Tariff presets are India's approximate real import duties (basic customs duty,
+// or effective duty where cesses matter), verified against 2024–25 Budget / CBIC
+// figures and kept consistent with the "Who pays the tariff?" simulator.
 const PRODUCTS: Preset[] = [
-  { name: 'Smartphone / electronics', tariff: 20, importShare: 60 },
-  { name: 'Home appliances (AC, TV)', tariff: 18, importShare: 45 },
+  { name: 'Smartphone / electronics', tariff: 15, importShare: 60 },
+  { name: 'Home appliances (AC, TV)', tariff: 20, importShare: 45 },
   { name: 'Automobile / EV', tariff: 70, importShare: 30 },
-  { name: 'Apparel & footwear', tariff: 12, importShare: 35 },
+  { name: 'Apparel & footwear', tariff: 20, importShare: 35 },
   { name: 'Edible oils', tariff: 35, importShare: 55 },
   { name: 'Furniture', tariff: 25, importShare: 40 },
   { name: 'Custom', tariff: 15, importShare: 50 },
