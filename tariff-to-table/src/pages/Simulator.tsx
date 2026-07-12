@@ -138,7 +138,13 @@ export default function Simulator() {
             })}
           </div>
           <p className="mt-3 text-sm text-navy-500 dark:text-navy-400">{good.note}</p>
-          <p className="mt-1.5 max-w-2xl text-xs leading-relaxed text-navy-400 dark:text-navy-500">
+          <p className="mt-2.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-navy-500 dark:text-navy-300">
+            <span className="inline-flex items-center rounded-full border border-navy-300 px-2.5 py-0.5 text-[0.68rem] font-semibold uppercase tracking-wide text-navy-700 dark:border-navy-700 dark:text-navy-100">
+              {good.econClass} good
+            </span>
+            <span>— {good.econDef}.</span>
+          </p>
+          <p className="mt-2 max-w-2xl text-xs leading-relaxed text-navy-400 dark:text-navy-500">
             {good.source}
           </p>
         </Reveal>
@@ -252,7 +258,10 @@ export default function Simulator() {
 
                   {/* Spending — editable for every good */}
                   <div className="mt-4">
-                    <label className="text-sm text-navy-500 dark:text-navy-300">
+                    <label className="flex items-center gap-2 text-sm text-navy-500 dark:text-navy-300">
+                      <span className="rounded bg-gold-600/10 px-1.5 py-0.5 text-[0.62rem] font-semibold uppercase tracking-wide text-gold-600 dark:text-gold-400">
+                        Our estimate
+                      </span>
                       {isDurable
                         ? `Price of each ${good.name.toLowerCase()} — edit if you like`
                         : `Yearly spend on ${good.name.toLowerCase()} — edit if you like`}

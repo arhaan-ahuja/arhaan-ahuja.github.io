@@ -42,6 +42,9 @@ export interface Good {
   note: string
   source: string // citation for the tariff rate
   basis: AmountBasis // how each tier's amount was derived
+  // Economic classification shown on the page, with a one-line definition.
+  econClass: 'Durable' | 'Semi-durable' | 'Non-durable'
+  econDef: string
 }
 
 export const GOODS: Good[] = [
@@ -62,6 +65,8 @@ export const GOODS: Good[] = [
       middle: '~4.5 people × ~18 kg × ₹140/kg ≈ ₹11,400',
       high: '~4 people × ~22 kg × ₹220/kg (pricier oils) ≈ ₹19,200',
     },
+    econClass: 'Non-durable',
+    econDef: 'used up quickly and bought again and again',
   },
   {
     id: 'clothes',
@@ -80,6 +85,8 @@ export const GOODS: Good[] = [
       middle: '~4.5 people × ~₹3,300 ≈ ₹15,000',
       high: '~4 people × ~₹10,500 ≈ ₹42,000',
     },
+    econClass: 'Semi-durable',
+    econDef: 'lasts a while, but wears out and gets replaced',
   },
   {
     id: 'toys',
@@ -98,6 +105,8 @@ export const GOODS: Good[] = [
       middle: '~2 children × ~₹3,500 ≈ ₹7,000',
       high: '~1–2 children × ~₹12,000 (branded / imported) ≈ ₹18,000',
     },
+    econClass: 'Semi-durable',
+    econDef: 'lasts a while, but wears out and gets replaced',
   },
   {
     id: 'almonds',
@@ -116,6 +125,8 @@ export const GOODS: Good[] = [
       middle: '~₹500/month × 12 ≈ ₹6,000',
       high: '~₹1,400/month (regular use + gifting) × 12 ≈ ₹16,800',
     },
+    econClass: 'Non-durable',
+    econDef: 'used up quickly and bought again and again',
   },
   {
     id: 'phone',
@@ -134,6 +145,8 @@ export const GOODS: Good[] = [
       middle: 'Mid-range phone ≈ ₹25,000',
       high: 'Flagship (iPhone Pro / Galaxy Ultra) ≈ ₹1,30,000',
     },
+    econClass: 'Durable',
+    econDef: 'long-lasting, and bought only occasionally',
   },
 ]
 
