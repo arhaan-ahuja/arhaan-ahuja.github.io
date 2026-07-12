@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import {
   Droplet,
   Smartphone,
-  Tv,
   Shirt,
   Gamepad2,
   Nut,
@@ -20,7 +19,6 @@ import { GOODS, INCOME_TIERS, type Tier } from '../data/goods'
 const ICONS: Record<string, LucideIcon> = {
   Droplet,
   Smartphone,
-  Tv,
   Shirt,
   Gamepad2,
   Nut,

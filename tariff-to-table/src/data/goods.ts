@@ -135,24 +135,6 @@ export const GOODS: Good[] = [
       high: 'Flagship (iPhone Pro / Galaxy Ultra) ≈ ₹1,30,000',
     },
   },
-  {
-    id: 'tv',
-    name: 'Television',
-    icon: 'Tv',
-    kind: 'durable',
-    tariff: 20,
-    importShare: 45,
-    amount: { low: 18000, middle: 35000, high: 120000 },
-    note: 'A one-off purchase — imported TVs and panels are taxed to favour local makers.',
-    source:
-      'Basic customs duty on finished TVs and flat-panel displays is 20% (Budget 2025-26). Source: Ministry of Finance.',
-    basis: {
-      note: 'A durable — this is the price of one TV at each budget, from typical Indian retail prices (2024–25).',
-      low: '32-inch LED TV ≈ ₹18,000',
-      middle: '43-inch TV ≈ ₹35,000',
-      high: '65-inch premium TV ≈ ₹1,20,000',
-    },
-  },
 ]
 
 export interface IncomeTier {

@@ -39,13 +39,6 @@ export const DATA_SOURCES: DataSourceGroup[] = [
         url: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2135774',
       },
       {
-        title: 'Highlights of the Union Budget 2025-26 — customs duty on finished flat-panel displays / TVs raised to 20%',
-        publisher: 'Press Information Bureau · Ministry of Finance, Government of India',
-        year: '2025',
-        usedFor: 'Television tariff (20%)',
-        url: 'https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=2098353',
-      },
-      {
         title: 'Customs Tariff of India — statutory duty schedule (toys 70%; apparel ~20%; footwear 20–35%; dry-fruit specific duties)',
         publisher: 'Central Board of Indirect Taxes & Customs (CBIC), Government of India',
         year: '2025',
