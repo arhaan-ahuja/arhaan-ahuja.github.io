@@ -10,9 +10,14 @@
 //   - 'durable'    → the price of ONE item bought occasionally (phone, TV)
 //
 // `amount` (yearly spend or one-item price, in ₹, per tier) and `importShare`
-// are realistic but ILLUSTRATIVE modelling assumptions — poorer households
-// spend less in absolute terms but a larger share of income on everyday goods,
-// which is why a tariff acts like a regressive tax.
+// are realistic MODELLED estimates, not exact survey values. Each amount is set
+// as a plausible share of that tier's yearly household budget, grounded in the
+// Household Consumption Expenditure Survey (HCES 2022-23) and real per-capita
+// consumption (e.g. India uses ~23.5 kg of edible oil per person per year, so a
+// ~5-person lower-income household spending ₹7,800/yr on oil ≈ 4% of a ₹18k/mo
+// budget). Richer households spend more in rupees but a SMALLER share of income
+// on essentials (Engel's law) — which is why a tariff acts like a regressive tax.
+// The "How these figures are estimated" panel on the Simulator page explains this.
 
 export type Tier = 'low' | 'middle' | 'high'
 

@@ -11,6 +11,7 @@ import {
 } from 'lucide-react'
 import PageHeader from '../components/ui/PageHeader'
 import Reveal from '../components/ui/Reveal'
+import ExpandableSection from '../components/ui/ExpandableSection'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { GOODS, INCOME_TIERS, type Tier } from '../data/goods'
 
@@ -293,12 +294,49 @@ export default function Simulator() {
           </div>
         </Reveal>
 
-        <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-navy-400">
-          Tariff rates are India's actual approximate import duties, sourced under
-          each good above. Incomes, yearly spending and one-off prices are
-          realistic but illustrative, and the model assumes the tariff is fully
-          passed on to shoppers. A simple educational model.
-        </p>
+        <Reveal>
+          <div className="mx-auto mt-10 max-w-3xl">
+            <ExpandableSection
+              title="How these figures are estimated"
+              subtitle="Where the tariff rates, incomes and spending amounts come from — and why they're realistic."
+            >
+              <div className="space-y-4 text-sm leading-relaxed">
+                <p>
+                  <strong>Tariff rates are real.</strong> Each rate is India's
+                  actual approximate import duty, cited under the good you pick
+                  above (from Ministry of Finance / CBIC / PIB figures, 2024–25).
+                </p>
+                <p>
+                  <strong>Household incomes are illustrative</strong> starting
+                  points you can change to your own numbers. The three tiers are
+                  meant to span a realistic range for India, not to be exact.
+                </p>
+                <p>
+                  <strong>Yearly spending is modelled, not guessed.</strong> Each
+                  amount is a plausible share of that household's yearly budget,
+                  grounded in India's official Household Consumption Expenditure
+                  Survey (HCES 2022-23) and real per-person consumption. Richer
+                  households spend more in rupees but a{' '}
+                  <em>smaller share</em> of income on essentials — the well-known
+                  pattern (Engel's law) that makes a tariff regressive.
+                </p>
+                <p>
+                  <strong>Worked example — cooking oil.</strong> India consumes
+                  about 23.5 kg of edible oil per person a year (2023). A
+                  five-person lower-income family using ~55–65 kg at ~₹130–150/kg
+                  spends roughly ₹7,000–9,000 a year — about 4% of a ₹18,000/month
+                  budget. That is why ₹7,800 is realistic, and even a little
+                  conservative.
+                </p>
+                <p className="text-navy-400 dark:text-navy-500">
+                  The model assumes the tariff is fully passed on to shoppers, so
+                  it shows the upper end of the price effect. A simple educational
+                  tool, not a precise forecast.
+                </p>
+              </div>
+            </ExpandableSection>
+          </div>
+        </Reveal>
       </section>
     </>
   )
