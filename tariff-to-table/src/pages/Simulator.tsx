@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   Droplet,
   Smartphone,
@@ -7,6 +8,7 @@ import {
   Gamepad2,
   Nut,
   RotateCcw,
+  ArrowRight,
   type LucideIcon,
 } from 'lucide-react'
 import PageHeader from '../components/ui/PageHeader'
@@ -415,6 +417,14 @@ export default function Simulator() {
                   it shows the upper end of the price effect. A simple educational
                   tool, not a precise forecast.
                 </p>
+
+                <Link
+                  to="/sources"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-gold-600 dark:text-gold-400"
+                >
+                  See every source on the Data Sources page{' '}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
             </ExpandableSection>
           </div>

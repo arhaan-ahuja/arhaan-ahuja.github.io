@@ -16,6 +16,7 @@ const Learn = lazy(() => import('./pages/Learn'))
 const Visualizations = lazy(() => import('./pages/Visualizations'))
 const FAQ = lazy(() => import('./pages/FAQ'))
 const References = lazy(() => import('./pages/References'))
+const DataSources = lazy(() => import('./pages/DataSources'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 function AnimatedRoutes() {
@@ -41,6 +42,7 @@ function AnimatedRoutes() {
             <Route path="/visualizations" element={<Visualizations />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/references" element={<References />} />
+            <Route path="/sources" element={<DataSources />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
