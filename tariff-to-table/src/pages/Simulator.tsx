@@ -45,14 +45,9 @@ const KEY_FIGURES: { value: string; label: string; source: string }[] = [
     source: 'HCES 2022-23, MoSPI',
   },
   {
-    value: '~4.4 people',
-    label: 'Average Indian household size used to scale per-person figures',
-    source: 'Census / NFHS-5',
-  },
-  {
-    value: '23.5 kg per person / year',
-    label: 'Edible-oil consumption (2023) — the basis for the cooking-oil estimate',
-    source: 'Dept. of Food & Public Distribution',
+    value: '~19.7 kg per person / year',
+    label: 'Edible-oil consumption — the basis for the cooking-oil estimate',
+    source: 'NITI Aayog, 2024',
   },
 ]
 
@@ -385,7 +380,8 @@ export default function Simulator() {
                   (HCES 2022-23) and real per-person consumption. The exact
                   arithmetic for the good you pick — for a lower-, middle- and
                   high-income family — is shown in the{' '}
-                  <em>"How we got these amounts"</em> box just above. Richer
+                  <em>"How we got these amounts"</em> box just above (assuming a
+                  household of about 4–5 people, close to India's average). Richer
                   households spend more in rupees but a <em>smaller share</em> of
                   income on essentials — the pattern (Engel's law) that makes a
                   tariff regressive.

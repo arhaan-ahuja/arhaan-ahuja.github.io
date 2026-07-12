@@ -1,6 +1,7 @@
-// Every official dataset, figure and rate used in the interactive tools and
-// charts, with a direct link and what it feeds. This is the "show your working"
-// companion to the academic bibliography on the References page.
+// Every official dataset, figure and tariff rate used in the interactive tools
+// and charts, with a direct link and what it feeds. Primary government / official
+// sources are preferred throughout. Items also cited in the research paper are
+// flagged with `alsoInPaper` and appear again in the bibliography below.
 
 export interface DataSource {
   title: string
@@ -8,6 +9,7 @@ export interface DataSource {
   year: string
   usedFor: string // where on the site this figure is used
   url?: string
+  alsoInPaper?: boolean // also listed in the research-paper bibliography
 }
 
 export interface DataSourceGroup {
@@ -23,46 +25,41 @@ export const DATA_SOURCES: DataSourceGroup[] = [
       'The rates in the "Who pays the tariff?" simulator and the Tariff Calculator.',
     items: [
       {
-        title: 'Union Budget 2024 — basic customs duty on mobile phones cut to 15%',
-        publisher: 'Ministry of Finance (via Business Standard)',
+        title: 'Highlights of the Union Budget 2024-25 — basic customs duty on mobile phones cut to 15%',
+        publisher: 'Press Information Bureau · Ministry of Finance, Government of India',
         year: '2024',
         usedFor: 'Smartphone tariff (15%)',
-        url: 'https://www.business-standard.com/budget/news/budget-2024-fm-cuts-basic-customs-duty-on-mobile-phones-chargers-to-15-124072300682_1.html',
+        url: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2035609',
       },
       {
-        title: 'Government hikes import duty on toys to 70%',
-        publisher: 'Business Standard',
-        year: '2023',
-        usedFor: 'Toys tariff (70%)',
-        url: 'https://www.business-standard.com/article/economy-policy/govt-hikes-import-duty-on-toys-to-70-to-boost-domestic-manufacturing-123020101712_1.html',
-      },
-      {
-        title: 'Centre reduces basic customs duty on crude edible oils (crude 10%, refined effective ~35.75%)',
-        publisher: 'Press Information Bureau, Government of India',
+        title: 'Reduction in basic customs duty on crude edible oils (crude ~16.5% effective; refined ~35.75%)',
+        publisher: 'Press Information Bureau · Ministry of Finance, Government of India',
         year: '2025',
         usedFor: 'Cooking-oil tariff (~35%)',
         url: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2135774',
       },
       {
-        title: 'Union Budget 2025-26 — customs duty on finished flat-panel displays / TVs raised to 20%',
-        publisher: 'Ministry of Finance (via Business Today)',
+        title: 'Highlights of the Union Budget 2025-26 — customs duty on finished flat-panel displays / TVs raised to 20%',
+        publisher: 'Press Information Bureau · Ministry of Finance, Government of India',
         year: '2025',
         usedFor: 'Television tariff (20%)',
-        url: 'https://www.businesstoday.in/union-budget/news/story/union-budget-2025-tvs-to-get-more-expensive-in-india-as-custom-duty-rises-462984-2025-02-01',
+        url: 'https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=2098353',
       },
       {
-        title: 'Customs Tariff of India — apparel, footwear and dry-fruit (specific) duties',
-        publisher: 'Central Board of Indirect Taxes & Customs (CBIC)',
+        title: 'Customs Tariff of India — statutory duty schedule (toys 70%; apparel ~20%; footwear 20–35%; dry-fruit specific duties)',
+        publisher: 'Central Board of Indirect Taxes & Customs (CBIC), Government of India',
         year: '2025',
-        usedFor: 'Clothes & shoes (25%) and Almonds & dry fruit (~30%) tariffs',
+        usedFor:
+          'Toys (70%), Clothes & shoes (25%) and Almonds & dry fruit (~30%) tariffs',
         url: 'https://www.cbic.gov.in/',
       },
       {
-        title: 'India says high tariffs on EVs protect from Chinese imports',
+        title: 'India says high tariffs on cars/EVs protect the domestic market',
         publisher: 'Reuters (via ThePrint)',
         year: '2024',
         usedFor: 'Automobile / EV preset in the Calculator (70%)',
         url: 'https://theprint.in/economy/india-says-high-tariffs-on-evs-to-protect-from-chinese-imports/2131433/',
+        alsoInPaper: true,
       },
     ],
   },
@@ -73,32 +70,25 @@ export const DATA_SOURCES: DataSourceGroup[] = [
     items: [
       {
         title: 'Household Consumption Expenditure Survey 2022-23 — Fact Sheet (MPCE, fractile classes, food share)',
-        publisher: 'Ministry of Statistics & Programme Implementation (MoSPI)',
+        publisher: 'Ministry of Statistics & Programme Implementation (MoSPI), Government of India',
         year: '2024',
         usedFor:
           'Average spending per person (₹3,773 rural / ₹6,459 urban), the poorest-vs-richest gap, and the food share of budgets',
         url: 'https://www.mospi.gov.in/sites/default/files/publication_reports/Factsheet_HCES_2022-23.pdf',
+        alsoInPaper: true,
       },
       {
-        title: 'Per-capita edible-oil consumption in India (~23.5 kg per person per year, 2023)',
-        publisher: 'Department of Food & Public Distribution (via Business Standard)',
-        year: '2025',
+        title: 'Report on edible oils — per-capita consumption ~19.7 kg per person per year',
+        publisher: 'NITI Aayog, Government of India (via Press Information Bureau)',
+        year: '2024',
         usedFor: 'The cooking-oil spending estimate',
-        url: 'https://www.business-standard.com/industry/agriculture/india-edible-oil-consumption-tripled-imports-health-obesity-palm-oil-125042100484_1.html',
-      },
-      {
-        title: 'National Family Health Survey (NFHS-5) — average household size (~4.4)',
-        publisher: 'Ministry of Health & Family Welfare, Government of India',
-        year: '2021',
-        usedFor: 'Scaling per-person figures up to a household',
-        url: 'http://rchiips.org/nfhs/factsheet_NFHS-5.shtml',
+        url: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2049737',
       },
     ],
   },
   {
     category: 'Tariffs, trade & the economy (charts)',
-    intro:
-      'The official data behind the figures on the Data & Evidence page.',
+    intro: 'The official data behind the figures on the Data & Evidence page.',
     items: [
       {
         title: 'World Integrated Trade Solution (WITS) & World Development Indicators — India tariff, trade and manufacturing data',
@@ -107,20 +97,22 @@ export const DATA_SOURCES: DataSourceGroup[] = [
         usedFor:
           "Figures 1–4: India's average tariff, tariff vs peers, trade openness and manufacturing share",
         url: 'https://wits.worldbank.org/CountryProfile/en/IND',
+        alsoInPaper: true,
       },
       {
         title: 'Household Consumption Expenditure Survey 2022-23 — average MPCE by fractile class',
-        publisher: 'Ministry of Statistics & Programme Implementation (MoSPI)',
+        publisher: 'Ministry of Statistics & Programme Implementation (MoSPI), Government of India',
         year: '2024',
         usedFor: 'Figure 5: the regressive-burden chart',
         url: 'https://www.mospi.gov.in/sites/default/files/publication_reports/Factsheet_HCES_2022-23.pdf',
+        alsoInPaper: true,
       },
       {
-        title: 'India becomes second-largest mobile-phone maker; phone self-sufficiency data',
-        publisher: 'India Cellular & Electronics Association (ICEA) / IBEF (via Moneycontrol)',
-        year: '2022',
+        title: 'Electronics & mobile-phone manufacturing in India (domestic production and self-sufficiency)',
+        publisher: 'India Brand Equity Foundation (IBEF), Ministry of Commerce & Industry',
+        year: '2024',
         usedFor: 'The ~97% phone self-sufficiency figure noted with the manufacturing chart',
-        url: 'https://www.moneycontrol.com/news/business/economy/india-becomes-second-largest-mobile-phone-maker-globally-government-8891981.html',
+        url: 'https://www.ibef.org/industry/electronics-system-design-manufacturing-esdm',
       },
     ],
   },

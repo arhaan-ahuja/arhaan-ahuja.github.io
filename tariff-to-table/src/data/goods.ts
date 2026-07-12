@@ -13,7 +13,7 @@
 // are realistic MODELLED estimates, not exact survey values. Each amount is set
 // as a plausible share of that tier's yearly household budget, grounded in the
 // Household Consumption Expenditure Survey (HCES 2022-23) and real per-capita
-// consumption (e.g. India uses ~23.5 kg of edible oil per person per year, so a
+// consumption (e.g. India uses ~19.7 kg of edible oil per person per year, so a
 // ~5-person lower-income household spending ₹7,800/yr on oil ≈ 4% of a ₹18k/mo
 // budget). Richer households spend more in rupees but a SMALLER share of income
 // on essentials (Engel's law) — which is why a tariff acts like a regressive tax.
@@ -57,7 +57,7 @@ export const GOODS: Good[] = [
     source:
       'Effective import duty on refined edible oils ≈ 35.75% in 2025 (crude edible oils were cut to ~16.5% in May 2025). Source: Ministry of Finance / CBIC notifications, 2024–25.',
     basis: {
-      note: 'India uses ~23.5 kg of edible oil per person a year (2023). Amount = household size × per-person use × price/kg.',
+      note: 'India uses ~19.7 kg of edible oil per person a year (NITI Aayog, 2024). Amount = household size × per-person use × price/kg.',
       low: '~5 people × ~11 kg × ₹140/kg ≈ ₹7,800',
       middle: '~4.5 people × ~18 kg × ₹140/kg ≈ ₹11,400',
       high: '~4 people × ~22 kg × ₹220/kg (pricier oils) ≈ ₹19,200',

@@ -48,15 +48,7 @@ export default function Footer() {
                   to="/sources"
                   className="text-navy-600 transition-colors hover:text-gold-600 dark:text-navy-200 dark:hover:text-gold-400"
                 >
-                  Data Sources
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/references"
-                  className="text-navy-600 transition-colors hover:text-gold-600 dark:text-navy-200 dark:hover:text-gold-400"
-                >
-                  References
+                  Sources &amp; References
                 </Link>
               </li>
             </ul>

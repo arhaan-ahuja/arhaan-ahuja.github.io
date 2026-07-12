@@ -110,8 +110,8 @@ export default function Research() {
               <p className="text-lg leading-relaxed text-navy-700 dark:text-navy-100">
                 {EXECUTIVE_SUMMARY}
               </p>
-              <Link to="/references" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gold-600 dark:text-gold-400">
-                <FileText className="h-4 w-4" /> View all references
+              <Link to="/sources" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gold-600 dark:text-gold-400">
+                <FileText className="h-4 w-4" /> View all sources &amp; references
               </Link>
             </div>
           </Reveal>
