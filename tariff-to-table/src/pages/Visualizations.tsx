@@ -47,12 +47,13 @@ export default function Visualizations() {
       <PageHeader
         eyebrow="The Evidence"
         title="Data that supports the theory"
-        intro="Every figure below is drawn from official statistics — World Bank and WITS tariff and national-accounts data, and India's official Household Consumption Expenditure Survey. The exact source sits beneath each chart, so you can check any number yourself."
+        intro="Figures 1–5 are drawn from official statistics — World Bank and WITS tariff and national-accounts data, and India's official Household Consumption Expenditure Survey. The exact source sits beneath each figure, so you can check any number yourself."
       />
 
       <section className="container-px py-14">
         <div className="grid gap-6 lg:grid-cols-2">
           <ChartCard
+            figNumber={1}
             title="India's average tariff is rising"
             caption="India's MFN applied tariff (simple average, all products) climbed through the protectionist turn, peaking in 2019 — the year it walked away from RCEP."
             source="Source: World Bank / WITS, MFN applied simple-average tariff, all products (TM.TAX.MRCH.SM.FN.ZS)."
@@ -76,6 +77,7 @@ export default function Visualizations() {
           </ChartCard>
 
           <ChartCard
+            figNumber={2}
             title="Among the most protectionist of major economies"
             caption="India maintains the highest average tariff of any large economy — several times the levels of the US, EU and China, and above Brazil."
             source="Source: World Bank / WITS, MFN applied simple-average tariff, all products, 2022."
@@ -97,6 +99,7 @@ export default function Visualizations() {
           </ChartCard>
 
           <ChartCard
+            figNumber={3}
             title="Retreating from global trade"
             caption="After opening rapidly through the 1990s and 2000s, India's trade-to-GDP ratio fell back from its 2012 peak as the protectionist turn took hold. The recent uptick partly reflects higher global commodity prices."
             source="Source: World Bank, Trade (% of GDP) — NE.TRD.GNFS.ZS."
@@ -115,6 +118,7 @@ export default function Visualizations() {
           </ChartCard>
 
           <ChartCard
+            figNumber={4}
             title="Manufacturing hasn't grown behind the wall"
             caption="'Make in India' aimed to lift manufacturing to 25% of GDP. Instead its share has drifted down. Higher tariffs pushed some assembly onshore — India now makes ~97% of the phones it sells, up from ~22% in 2014 — but did not expand manufacturing overall."
             source="Source: World Bank, Manufacturing value added (% of GDP) — NV.IND.MANF.ZS. Mobile-phone self-sufficiency: ICEA / IBEF."
@@ -136,6 +140,7 @@ export default function Visualizations() {
         {/* Full-width regressive burden chart */}
         <div className="mt-6">
           <ChartCard
+            figNumber={5}
             title="Why a price rise hits the poorest hardest"
             caption="The poorest 5% of rural Indians live on about ₹1,373 a month; the richest 5% on ₹10,501 — and lower-income households spend a far larger share of that on food and essentials (food alone is ~46% of rural spending). A tariff that raises the price of everyday goods therefore takes a bigger bite from the smallest budgets."
             source="Source: MoSPI, Household Consumption Expenditure Survey 2022-23 — average MPCE by fractile class, rural India (Statement 4)."
