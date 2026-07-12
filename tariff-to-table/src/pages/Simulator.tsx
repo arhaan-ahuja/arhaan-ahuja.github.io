@@ -284,6 +284,9 @@ export default function Simulator() {
                         {isDurable ? 'each' : '/yr'}
                       </span>
                     </div>
+                    <p className="mt-1.5 text-xs leading-relaxed text-navy-400 dark:text-navy-500">
+                      This {inr(r.unit)} is <span className="font-semibold text-navy-500 dark:text-navy-300">our estimate</span>, not a number you gave us — type your own to see your figures. How we worked it out is shown below.
+                    </p>
 
                     {isDurable && (
                       <div className="mt-3 flex items-center justify-between">
